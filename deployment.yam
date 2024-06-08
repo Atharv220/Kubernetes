@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment  
 metadata:
-  name: frontend-app
+  name: my-deployment
 spec: 
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
-      app: frontend-app
+      app: student-app
   strategy: 
     type: RollingUpdate 
   template: 
     metadata: 
       labels:
-        app: frontend-app
+        app: student-app
     spec:
       containers:
-      - name: frontend-app
-        image: piyu5233/project:studentapp
+      - name: my-app
+        image: nginx
         ports:
-        - name: tomcat
-          containerPort: 8080
+        - name: http
+          containerPort: 80
           protocol: TCP 
